@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "973029734077",
+    "firebase_url": "https://loginform-90dc7-default-rtdb.firebaseio.com",
+    "project_id": "loginform-90dc7",
+    "storage_bucket": "loginform-90dc7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:973029734077:android:9183f1368ac0aa3d7e29d4",
+        "android_client_info": {
+          "package_name": "com.loginapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBo2tOP-4OAjHPw2J4my-LioW_aBEGeavo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
