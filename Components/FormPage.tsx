@@ -17,8 +17,8 @@ function UserDetailsForm() {
     const [email, setEmail] = useState('');
     const [contacts, setContacts] = useState('');
     const [gender, setGender] = useState('');
-    const [userDetails, setUserDetails] = useState<UserDetails[]>([]); // Correct type here
-    const [isLoading, setIsLoading] = useState(false); // Track loading state
+    const [userDetails, setUserDetails] = useState<UserDetails[]>([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     const ref = database().ref('/users'); // Reference to users collection in Firebase
 
@@ -28,13 +28,15 @@ function UserDetailsForm() {
             const data = snapshot.val();
             if (data) {
                 const userList: UserDetails[] = data ? Object.keys(data).map(key => {
-                    console.log("Gender for User", key, data[key].gender);  // Log the gender value
+                    // console.log("Gender for User", key, data[key].gender);  // Log the gender value
                     return {
                         uid: key,
-                        name: data[key].name,
-                        email: data[key].email,
-                        contacts: data[key].contacts,
-                        gender: data[key].gender,
+                        //name: data[key].name,
+                        //email: data[key].email,
+                        //contacts: data[key].contacts,
+                        //gender: data[key].gender,
+                        ...data[key],
+
                     };
                 }) : [];
 
@@ -79,12 +81,14 @@ function UserDetailsForm() {
                 const data = snapshot.val();
                 const userList: UserDetails[] = data ? Object.keys(data).map(key => ({
                     uid: key,
-                    name: data[key].name,
-                    email: data[key].email,
-                    contacts: data[key].contacts,
-                    gender: data[key].gender,
+                    //name: data[key].name,
+                    //email: data[key].email,
+                    //contacts: data[key].contacts,
+                    //gender: data[key].gender,
+                    ...data[key],
                 })) : [];
                 setUserDetails(userList);
+                {/* Check Updated userList */ }
                 console.log("User Details after Adding:", userList);
 
             } catch (error) {
@@ -100,7 +104,7 @@ function UserDetailsForm() {
     return (
         <ScrollView style={styles.container}>
             <Text style={styles.headingText}>User Details Form</Text>
-
+            {/* Form Details Section */}
             <TextInput
                 style={styles.textInput}
                 placeholder="Name"
